@@ -11,6 +11,7 @@ import Button from '../components/Button';
 import Indicator from '../components/Indicator';
 import modalPlugin from '../components/Modal/plugin';
 import formModalPlugin from '../plugins/formModal';
+import Tree from '../components/Tree'
 
 export default function installFrappePlugin(Vue) {
   Vue.component('not-found', NotFound);
@@ -18,6 +19,7 @@ export default function installFrappePlugin(Vue) {
   Vue.component('frappe-control', FrappeControl);
   Vue.component('f-button', Button);
   Vue.component('indicator', Indicator);
+  Vue.component('tree', Tree)
 
   Vue.use(modalPlugin);
   Vue.use(formModalPlugin);
