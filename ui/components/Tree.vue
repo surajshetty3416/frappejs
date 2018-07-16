@@ -1,14 +1,13 @@
 <template>
-  <li>
-    <div
-      class="tree-node"
-      @click="toggleChildren">
+  <li class="tree-node list-unstyled">
+    <div @click="toggleChildren">
       <span class="tree-node-icon" v-if="isFolder">
         <feather-icon :name="isFolderOpen ? 'folder-minus': 'folder-plus'"></feather-icon>
       </span>
-      {{ model.name }}
+      <span class="tree-node-label secondary-link">{{ model.name }}</span>
+      <span v-if="model.data" class="tree-node-data pull-right text-muted">{{ model.data }}</span>
     </div>
-    <ul v-show="isFolderOpen" v-if="isFolder">
+    <ul class="tree-children" v-show="isFolderOpen" v-if="isFolder">
       <tree
         class="tree"
         v-for="(model, index) in model.children"
@@ -43,25 +42,16 @@ export default {
   }
 };
 </script>
-<style scoped>
-.item {
+<style lang="scss">
+.tree-node {
   cursor: pointer;
+  margin: 2px 0;
 }
-.bold {
-  font-weight: bold;
-}
-ul {
+.tree-children {
   padding-left: 1em;
   line-height: 1.5em;
-  list-style-type: dot;
-}
-li {
-  list-style: none;
 }
 .tree-node-icon {
   vertical-align: middle
-}
-.tree-node{
-  margin: 5px;
 }
 </style>
